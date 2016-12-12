@@ -1,41 +1,224 @@
-/*--Colors--*/
-*dark gray: #383D3B
-*pale pink: #EEE5E9
-*light gray: #7C7C7C
-*pale blue: #92DCE5
-*bright blue: #52DEE5
+/*--
+Defaults
 --*/
-
-
-.header{
-    background color: #EEE5E9;
+html, body, body div, h1, h2, h3, h4, h5, h6, p, ul, ol, li, a {
+	margin: 0;
+	padding: 0;
 }
-
-body{
-    font-family: 'Lora', serif;
-    font-weight: 300;
-    font-size: 18px;
-    margin: 0;
-    padding: 0;
-    background-color: #7C7C7C;
+html {
+	font-size: 18px;
 }
-
-h1, h2, h3, h4, h5, h6{
-    font-family: 'Questrial', sans-serif;
-    padding-top: 12px;
+body {
+	font-family: 'Lora';
+	font-weight: 300;
+	background-color: #7C7C7C;
 }
-
+/*-- css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ --*/
+html {box-sizing: border-box;}
+*, *:before, *:after {box-sizing: inherit;}
+h1, h2, h3, h4, h5, h6, p {
+	font-family: 'Questrial';
+}
 h1{
-    font-family: 'Bungee Inline', sans-serif;
+	font-family: 'Bungee Inline';
+	color: #92DCE5;
 }
-
-.panel img{
-    width: 100%;   
+.panel > p{
+	color: #EEE5E9;
 }
-
-.panel{
-    width: 24.9%;
-    display: inline block;
+/*--
+Document Styles
+--*/
+a {
+	text-decoration: none;
+	color: purple;
+	transition: color .6s;
+}
+a:hover {
+	color: magenta;
+}
+img {
+	max-width: 100%;
+}
+.grid > div > img:hover {
+	opacity: .75;
+}
+main {
+	width: 96%;
+	margin: 0 auto;
+}
+.hero {
+	padding-top: 100px;
+	border-bottom: 4px dashed #999;
+	display: flex;
+	flex-flow: column-reverse;
+}
+.slides-container {
+	flex-grow: 6;
+}
+.teaser {
+	font-size: 180%;
+	padding: 0 16px 32px 16px;
+}
+.grid {
+	display: flex;
+	flex-flow: row wrap;
+}
+.panel {
+	margin: 8px;
+	flex-grow: 1;
+	flex-basis: 300px;
+}
+/*-- BxSlider Style Corrections --*/
+.bx-wrapper .bx-viewport {
+	background: rgba(255,255,255,0);
+	border-color: rgba(255,255,255,0);
+}
+.bx-caption { /*-- corrects caption position --*/
+	margin-bottom: 10px;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+a.bx-next {/*-- corrects next button position --*/
+	margin-right: 10px;
+}
+/*-- Navigation Panel Styles --*/
+#main-navigation:target {/*-- sets width of nav panel when opened on small screens --*/
+  width: 38%;
+}
+.navigation {/*-- Sets properties of nav panel (closed by default) --*/
+  width: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 45%; /*-- sets the nav panel height --*/
+	transition: width .4s ease;
+	background-color: #EAEAEA;
+	z-index: 10000;
+	box-shadow: inset 5px 5px 0 #999, inset 0px -5px 0 #999;
+}
+.navigation h3 {/*-- positions the nav h3 element --*/
+	padding-top: 2rem;
+	padding-left: 2rem;
+	font-size: 2rem;
+}
+.navigation ul { /*-- removes bullets from list items --*/
+	list-style-type: none;
+	font-size: 1.8rem;
+	padding-left: 1rem;
+}
+.navigation li a { /*-- sets anchors to block and pads them --*/
+	display: block;
+	padding: 1rem;
+}
+.navigation li a:hover { /*-- sets anchor properties on hover --*/
+	background-color: #555;
+	color: #fff;
+}
+.icon-wrap { /*-- sets icon container position --*/
+	position: fixed;
+	z-index: 9999;
+	top: 1rem;
+	right: 1.25rem;
+}
+span.hamburger { /*-- sets nav icon apperance --*/
+	background: rgba(255,255,255,0.8);
+	border: 2px solid #555;
+	border-radius: 8px;
+	color: #555;
+	font-size: 3rem;
+	padding: 0 .2em .2em .2em;
+}
+span:hover.hamburger { /*-- sets nav icon color on hover --*/
+	background: rgba(255,255,255,1);
+	color: #999;
+	border-color: #999;
+}
+span.x-mark { /*-- sets close icon apperance and position --*/
+	color: #555;
+	font-size: 3em;
+	position: absolute;
+	top: 1rem;
+	right: 1.25rem;
+	padding: 0 .7rem;
+}
+span:hover.x-mark { /*-- sets close icon color on hover --*/
+	color: #999;
+}
+/*-- Modal Styles --*/
+.modal {
+	z-index: 10000;
+	display: none;
+	padding-top: 100px;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: #EEE5E9;
+}
+.modal-content {
+	margin: auto;
+	position: relative;
+	padding: 0;
+	width: 800px;
+}
+.closebtn {
+	text-decoration: none;
+	float: right;
+	font-weight: bold;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	font-size: 72px;
+	color: #fff;
+}
+.closebtn:hover, .closebtn:focus {
+	text-decoration: none;
+	cursor: pointer;
+	background-color: red;
+}
+.container{
+	padding: 0.01em 0.3em;
+}
+.container:after,.panel:after,.row:after,.row-padding:after,.topnav:after,.clear:after,.btn-group:before,.btn-group:after,.btn-bar:before,.btn-bar:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+footer {
+	padding: 20px 20px 10px 20px;
+	margin-top: 20px;
+	border-top: 4px dashed #999;
+}
+footer p {
+	font-family: 'Lora';
+	text-align: center;
+}
+.modal-content {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+.animate-zoom {
+	-webkit-animation: zoom 0.6s;
+	animation: zoom 0.6s;
+}
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0);}
+    to {-webkit-transform:scale(1);}
+}
+@keyframes zoom {
+    from {transform:scale(0);}
+    to {transform:scale(1);}
+}
+/*-- Media Queries --*/
+@media screen and (min-width: 860px) {
+	.hero {flex-flow: row wrap;}
+	.teaser {width: 40%;}
 }
 
 
