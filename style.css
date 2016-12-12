@@ -1,0 +1,41 @@
+/*--Colors--*/
+*dark gray: #383D3B
+*pale pink: #EEE5E9
+*light gray: #7C7C7C
+*pale blue: #92DCE5
+*bright blue: #52DEE5
+--*/
+
+
+.header{
+    background color: #EEE5E9;
+}
+
+body{
+    font-family: 'Lora', serif;
+    font-weight: 300;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+    background-color: #7C7C7C;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Questrial', sans-serif;
+    padding-top: 12px;
+}
+
+h1{
+    font-family: 'Bungee Inline', sans-serif;
+}
+
+.panel img{
+    width: 100%;   
+}
+
+.panel{
+    width: 24.9%;
+    display: inline block;
+}
+
+
